@@ -13,7 +13,7 @@ import os
 name = "elon musk"
 
 
-def ice_break(name: str) -> PersonIntel:
+def ice_break(name: str) -> Tuple[PersonIntel, str]:
     linkedin_profile_url = linkedin_lookup_agent(name)
     linkedin_data = scrape_linkedin_profile(linkedin_profile_url=linkedin_profile_url)
     #
@@ -52,7 +52,7 @@ def ice_break(name: str) -> PersonIntel:
 
     print(result)
 
-    return person_intel_parser.parse(result)
+    return person_intel_parser.parse(result), linkedin_data.get("profile_pic_url")
 
 
 if __name__ == "__main__":

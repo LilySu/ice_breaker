@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baa65b19-2ca1-4c80-bc40-f96b60436a67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/output_parsers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_19_2023_2_09_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_19_2023_2_09_PM__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ice_breaker.py" beforeDir="false" afterPath="$PROJECT_DIR$/ice_breaker.py" afterDir="false" />
     </list>
@@ -50,7 +47,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "2-twitter-processing-wip",
+    "git-widget-placeholder": "3-api-server-wip",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/User/git/ice_breaker/main.py",
     "settings.editor.selected.configurable": "com.jetbrains.python.black.configuration.BlackFormatterConfigurable"
