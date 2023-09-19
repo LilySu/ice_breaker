@@ -10,8 +10,8 @@ from langchain.agents import AgentType
 def lookup(name: str) -> str:
     llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
 
-    template = """given the full name {name_of_person} I want you to get it me a link to their Linkedin profile page.
-                          Your answer should contain only a URL"""
+    template = """given the full name {name_of_person} I want you to get me a link to their Linkedin profile page. If the linkedin page can't be find, find another linkedin profile, any linkedin profile
+                          Your answer should contain only an URL"""
     tools_for_agent1 = [
         Tool(
             name="Crawl Google 4 linkedin profile page",
