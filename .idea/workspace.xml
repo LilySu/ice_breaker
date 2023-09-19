@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baa65b19-2ca1-4c80-bc40-f96b60436a67" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/third_parties/twitter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/linkedin_lookup_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/linkedin_lookup_agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ice_breaker.py" beforeDir="false" afterPath="$PROJECT_DIR$/ice_breaker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/third_parties/linkedin.py" beforeDir="false" afterPath="$PROJECT_DIR$/third_parties/linkedin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/tools.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +23,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="2-twitter-proccessing" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -35,7 +48,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "section3lily",
+    "git-widget-placeholder": "3-api-server",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/User/git/ice_breaker/main.py",
     "settings.editor.selected.configurable": "com.jetbrains.python.black.configuration.BlackFormatterConfigurable"
@@ -53,10 +66,14 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
         <env name="OPENAI_API_KEY" value="$OPENAI_API_KEY$" />
         <env name="PROXYCURL" value="OGa35Op_-4vl8-2NfsqLGA" />
+        <env name="PYTHONUNBUFFERED" value="1" />
         <env name="SERPAPI_API_KEY" value="2ff8d49bdb2807781722baba17e7cdffe20547d86b6ef7a636054ee7fa868b1d" />
+        <env name="TWITTER_API_KEY" value="F77LfLwHkk8bX3fATSJ88rogH" />
+        <env name="TWITTER_API_SECRET" value="3gMEJDErkG6cdukvCDl1UlizeeLxMdTMEFFEHzg7r9Wp8ppzfO" />
+        <env name="TWITTER_ACCESS_TOKEN" value="1690057626963320838-8JO0nHpdV25446B4rL2OaIJDaGGZr5" />
+        <env name="TWITTER_ACCESS_SECRET" value="PI2JfBzsuBNbOLQcqlZIE2QqGFCTRP2LIgVSZIsj1AY4X" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />

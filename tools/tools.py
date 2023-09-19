@@ -1,5 +1,6 @@
 from langchain.utilities import SerpAPIWrapper
 
+
 class CustomSerpAPIWrapper(SerpAPIWrapper):
     def __init__(self):
         super(CustomSerpAPIWrapper, self).__init__()
@@ -9,85 +10,35 @@ class CustomSerpAPIWrapper(SerpAPIWrapper):
         """Process response from SerpAPI."""
         if "error" in res.keys():
             raise ValueError(f"Got error from SerpAPI: {res['error']}")
-        if "answer_box_list" in res.keys():
-            res["answer_box"] = res["answer_box_list"]
-        if "answer_box" in res.keys():
-            answer_box = res["answer_box"]
-            if isinstance(answer_box, list):
-                answer_box = answer_box[0]
-            if "result" in answer_box.keys():
-                return answer_box["result"]
-            elif "answer" in answer_box.keys():
-                return answer_box["answer"]
-            elif "snippet" in answer_box.keys():
-                return answer_box["snippet"]
-            elif "snippet_highlighted_words" in answer_box.keys():
-                return answer_box["snippet_highlighted_words"]
-            else:
-                answer = {}
-                for key, value in answer_box.items():
-                    if not isinstance(value, (list, dict)) and not (
-                        type(value) == str and value.startswith("http")
-                    ):
-                        answer[key] = value
-                return str(answer)
-        elif "events_results" in res.keys():
-            return res["events_results"][:10]
-        elif "sports_results" in res.keys():
-            return res["sports_results"]
-        elif "top_stories" in res.keys():
-            return res["top_stories"]
-        elif "news_results" in res.keys():
-            return res["news_results"]
-        elif "jobs_results" in res.keys() and "jobs" in res["jobs_results"].keys():
-            return res["jobs_results"]["jobs"]
+        if "answer_box" in res.keys() and "answer" in res["answer_box"].keys():
+            toret = res["answer_box"]["answer"]
+        elif "answer_box" in res.keys() and "snippet" in res["answer_box"].keys():
+            toret = res["answer_box"]["snippet"]
         elif (
-            "shopping_results" in res.keys()
-            and "title" in res["shopping_results"][0].keys()
+            "answer_box" in res.keys()
+            and "snippet_highlighted_words" in res["answer_box"].keys()
         ):
-            return res["shopping_results"][:3]
-        elif "questions_and_answers" in res.keys():
-            return res["questions_and_answers"]
+            toret = res["answer_box"]["snippet_highlighted_words"][0]
         elif (
-            "popular_destinations" in res.keys()
-            and "destinations" in res["popular_destinations"].keys()
+            "sports_results" in res.keys()
+            and "game_spotlight" in res["sports_results"].keys()
         ):
-            return res["popular_destinations"]["destinations"]
-        elif "top_sights" in res.keys() and "sights" in res["top_sights"].keys():
-            return res["top_sights"]["sights"]
+            toret = res["sports_results"]["game_spotlight"]
         elif (
-            "images_results" in res.keys()
-            and "thumbnail" in res["images_results"][0].keys()
+            "knowledge_graph" in res.keys()
+            and "description" in res["knowledge_graph"].keys()
         ):
-            return str([item["thumbnail"] for item in res["images_results"][:10]])
+            toret = res["knowledge_graph"]["description"]
+        elif "snippet" in res["organic_results"][0].keys():
+            toret = res["organic_results"][0]["link"]
 
-        snippets = []
-        if "knowledge_graph" in res.keys():
-            knowledge_graph = res["knowledge_graph"]
-            title = knowledge_graph["title"] if "title" in knowledge_graph else ""
-            if "description" in knowledge_graph.keys():
-                snippets.append(knowledge_graph["description"])
-            for key, value in knowledge_graph.items():
-                if (
-                    type(key) == str
-                    and type(value) == str
-                    and key not in ["title", "description"]
-                    and not key.endswith("_stick")
-                    and not key.endswith("_link")
-                    and not value.startswith("http")
-                ):
-                    snippets.append(f"{title} {key}: {value}.")
-        if "organic_results" in res.keys():
-            first_organic_result = res["organic_results"][0]["link"]
         else:
-            return "No good search result found"
-        return first_organic_result
+            toret = "No good search result found"
+        return toret
 
-def get_profile_url(text: str) -> str:
-    # search with initial value, if doesn't find it will make adjustments
-    # agent runs till it gets the result it wants
-    # custom formatter, agent decides whether it is right tool or not.
-    # api that wraps around google search.
+
+def get_profile_url(name: str):
+    """Searches for Linkedin or twitter Profile Page."""
     search = CustomSerpAPIWrapper()
-    res = search.run(f"{text}")
+    res = search.run(f"{name}")
     return res
